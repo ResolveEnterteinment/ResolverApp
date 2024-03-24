@@ -12,7 +12,7 @@ export default function ModelSelectionBox(model:Model)
     const date = new Date( model.createTime);
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
-    const day = date.getDay();
+    const day = date.getDate();
 
     const yearText = year.toLocaleString();
     const monthText = month.toLocaleString();

@@ -12,7 +12,7 @@ export default function ModelSelectionBox(model:Model)
     const date = new Date( model.createTime);
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
-    const day = date.getDay();
+    const day = date.getDate();
 
     const yearText = year.toLocaleString();
     const monthText = month.toLocaleString();
@@ -27,27 +27,10 @@ export default function ModelSelectionBox(model:Model)
             <fetcher.Form ref={formRef} method="post" action="selectModel">
                 <div className="existing-model-selection-box">
                     <h4 className="text">{model.name}</h4>
-
-                    <div className="date-container">
-                        <div className="day">
-                            <p className="date-text">DAY</p>
-                            <p className="text">{dayText}</p>
-                        </div>
-
-
-                        <div className="month">
-                            <p className="date-text">MONTH</p>
-                            <p className="text">{monthText}</p>
-                        </div>
-
-
-                        <div className="year">
-                            <p className="date-text">YEAR</p>
-                            <p className="text">{yearText}</p>
-                        </div>
-                    </div>
                     
-
+                    <div className="date-container">
+                        <p>{dayText} / {monthText} / {yearText}</p>
+                    </div>
                     
                 </div>
                 <input type="hidden" name={"modelId"} value={model.id} />

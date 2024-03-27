@@ -1,5 +1,5 @@
 import { useState, DragEvent, useRef, useEffect, FC} from 'react';
-import objFileIcon from "../images/fileIcons/objFileIcon.png";
+import objFileIcon from "../../images/fileIcons/objFileIcon.png";
 
 interface DragDropFileUploadData
 {

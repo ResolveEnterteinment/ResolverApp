@@ -12,8 +12,8 @@ import {
 } from "@remix-run/react";
 
 import styles from "./styles/main.css" 
-import MainNavigation from "./components/MainNavigation";
-import Spinner from "./components/Spinner";
+import MainNavigation from "./components/General/MainNavigation";
+import Spinner from "./components/General/Spinner";
 import { HasAccesTokenAndUserId } from "./utils/userUtils";
 
 export const links: LinksFunction = () => [

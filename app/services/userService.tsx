@@ -68,6 +68,7 @@ export async function StartUploadModel(requestBody: StartUploadModelRequest) : P
 export interface OnModelUploadedRequest {
     userId:String;
     modelId:String;
+    size: Number
 };
 
 export async function OnModelUploaded(requestBody: OnModelUploadedRequest) : Promise<BaseResponse> {
@@ -188,6 +189,7 @@ export interface Model{
   id:string;
   name:string;
   createTime:Date;
+  fileSize:Number
 }
 
 export async function FetchAllModels() : Promise<FetchAllModelsResponse> {

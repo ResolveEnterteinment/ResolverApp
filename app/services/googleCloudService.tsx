@@ -65,7 +65,8 @@ export const googleCloudUploadHandler: UploadHandler = async (file) => {
 
   const onUploadModelResponse = await OnModelUploadedRequest({
     userId: userId,
-    modelId: startUploadModelResponse.id
+    modelId: startUploadModelResponse.id,
+    size: size
   });
 
   if (!onUploadModelResponse.success) {
@@ -77,4 +78,13 @@ export const googleCloudUploadHandler: UploadHandler = async (file) => {
     "message": `${file.filename} uploaded`,
     "actionType": "upload"
   });
+}
+
+export async function downloadModelIntoMemory(modelName:string)
+{
+  const path = `${userId}/${modelName}`
+
+  const content = await storage.storage(firebaseApp).bucket(`${process.env.FIREBASE_PROJECT_ID}.appspot.com`).file(path).download();
+
+  return content;
 }

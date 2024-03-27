@@ -6,7 +6,6 @@ import { useRouteLoaderData } from "@remix-run/react";
 export default function ModelSelectionBox(model:Model)
 {
     const fetcher = useFetcher();
-    const submit = useSubmit();
     const formRef = useRef<HTMLFormElement>(null)
 
     const date = new Date( model.createTime);
@@ -30,6 +29,10 @@ export default function ModelSelectionBox(model:Model)
                     
                     <div className="date-container">
                         <p>{dayText} / {monthText} / {yearText}</p>
+                    </div>
+                    
+                    <div className="text">
+                        size: {model.fileSize.toString()} byte (Atilla)
                     </div>
                     
                 </div>

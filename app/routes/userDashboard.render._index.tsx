@@ -32,7 +32,7 @@ export async function action({request}: ActionFunctionArgs)
         
         session.set("scene", formData.get("scene") as string);
         
-        return redirect("/userDashboard/render/1", {
+        return redirect("/userDashboard/render/1/models", {
             headers: {
             "Set-Cookie": await commitSession(session),
             },

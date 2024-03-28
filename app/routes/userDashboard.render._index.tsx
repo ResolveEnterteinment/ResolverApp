@@ -1,16 +1,16 @@
-import { ActionFunctionArgs, LoaderFunctionArgs, MetaFunction, redirect } from "@remix-run/node";
+import { ActionFunctionArgs, LinksFunction, LoaderFunctionArgs, redirect } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import {GetRenderSceneNames, RenderSceneNamesResponse} from "~/services/renderService"
-import SceneSelectionCard from "~/components/SceneSelectionCard";
+import SceneSelectionCard from "~/components/SceneSelectionCard/sceneSelectionCard";
+import {links as sceneSelectionCardLinks} from "~/components/SceneSelectionCard/sceneSelectionCard";
 import { commitSession, getSession } from "~/utils/session";
 import { RedirectToLoginIfUserInvalid } from "~/utils/userUtils";
 
-export const meta: MetaFunction = () => {
+export function links() {
     return [
-      { title: "Resolver Auto Renderer" },
-      { name: "description", content: "Auto Renderer" },
+        ...sceneSelectionCardLinks()
     ];
-};
+  }
 
 export async function loader({request}: LoaderFunctionArgs) {
     const data = await GetRenderSceneNames();

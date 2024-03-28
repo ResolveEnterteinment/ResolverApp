@@ -1,0 +1,34 @@
+.transform-input-parent{
+    width: 200px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.transform-input-title{
+    border-bottom: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.transform-vector-title{
+    display: flex;
+    justify-content: space-between;
+}
+
+.transform-activate-vector-parent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+
+.transform-activate-vector-parent > *{
+    margin: 0 10px;
+}
+
+.transform-activate-vector-button{
+    transition: transform .2s;
+}
+
+.transform-activate-vector-button:hover{
+    transform: scale(1.5);
+}

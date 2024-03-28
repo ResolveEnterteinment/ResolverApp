@@ -1,14 +1,17 @@
 import { ActionFunction, ActionFunctionArgs, json, redirect } from '@remix-run/node';
-import { Form, Link, useActionData } from '@remix-run/react';
+import type { LinksFunction } from "@remix-run/node";
+import { useActionData } from '@remix-run/react';
 import { Login as LoginRequest, LoginResponse } from '~/services/authenticateService';
 import { commitSession, getSession } from "~/utils/session";
 
-import styles from '~/styles/register.css';
+import LoginForm from '~/components/Auth/loginForm';
+import {links as authStyles} from '~/components/Auth/loginForm';
 
-export function links() {
-    return [{ rel: 'stylesheet', href: styles }];
-}
-type ActionData = {
+export const links: LinksFunction = () => [
+    ...authStyles()
+];
+
+interface ActionData {
     success:boolean,
     message:string
 };
@@ -43,25 +46,11 @@ export const action: ActionFunction = async ({ request }: ActionFunctionArgs) =>
 export default function Login() {
     const actionData = useActionData<ActionData>();
 
+    const loginForm = LoginForm(actionData as unknown as ActionData);
+
     return (
-      <center>
-      <div className="register-container">
-        <h1 className="form-title">Login</h1>
-        {actionData?.success ? actionData?.message && <p className="success-message">{actionData.message}</p> : 
-          actionData?.message && <p className="error-message">{actionData.message}</p>}
-        <Form method="post" className="register-form">
-        <div className="form-group">
-            <label htmlFor="email" className="form-label">Email:</label>
-            <input type="email" id="email" name="email" required className="form-input" />
-          </div>
-          <div className="form-group">
-            <label htmlFor="password" className="form-label">Password:</label>
-            <input type="password" id="password" name="password" required className="form-input" />
-          </div>
-          <button type="submit" className="submit-button">Login</button>
-        </Form>
-        <Link to="/register" className="login-link">Don't have an account? Sign Up</Link>
+      <div>
+        {loginForm}
       </div>
-      </center>
     );
   }

@@ -1,0 +1,30 @@
+.render-step-parent {
+    margin-bottom: 100px;
+    width: 200px;
+    height: px;
+    display: flex;
+    justify-content: center;
+    -webkit-transition: 200ms ease-in-out;
+      -o-transition: 200ms ease-in-out;
+      transition: 200ms ease-in-out;
+}
+.render-step-image  {
+    width: 200px;
+    height: 100;
+    -webkit-transition: 200ms ease-in-out;
+    -o-transition: 200ms ease-in-out;
+    transition: 200ms ease-in-out;
+    align-self: center;
+}
+
+.render-step-parent h4 {
+    position:absolute;
+      color: #fff;
+    text-align: center;
+    align-self:baseline;
+    font-weight: 100;
+    font-size: 25px;
+    width: 180px;
+    height: 50px;
+    padding-bottom: 10px;
+  }

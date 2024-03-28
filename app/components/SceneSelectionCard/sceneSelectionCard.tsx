@@ -1,12 +1,6 @@
 import constants from "constants.json"
-import { Form, MetaFunction, useNavigation } from "@remix-run/react";
-
-export const meta: MetaFunction = () => {
-    return [
-      { title: "Resolver Auto Renderer" },
-      { name: "description", content: "Scene Selection" },
-    ];
-  };
+import { Form } from "@remix-run/react";
+import style from './sceneSelectionCard.css';
 
 export default function SceneSelectionCard(sceneName:string) 
 {
@@ -27,3 +21,8 @@ export default function SceneSelectionCard(sceneName:string)
     );
 }
 
+export function links() {
+    return [
+        { rel: 'stylesheet', href: style }
+    ];
+  }

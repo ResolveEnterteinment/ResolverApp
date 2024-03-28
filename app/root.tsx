@@ -1,4 +1,4 @@
-import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
+import type { LinksFunction, LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import {
   Links,
   LiveReload,
@@ -11,14 +11,22 @@ import {
   useNavigation,
 } from "@remix-run/react";
 
-import styles from "./styles/main.css" 
-import MainNavigation from "./components/General/MainNavigation";
-import Spinner from "./components/General/Spinner";
+import styles from "./styles/root.css" 
+import MainNavigation from "./components/General/mainNavigation";
+import Spinner from "./components/General/spinner";
 import { HasAccesTokenAndUserId } from "./utils/userUtils";
 
 export const links: LinksFunction = () => [
-   { rel: "stylesheet", href: styles }
+  { rel: "stylesheet", href: styles }
 ];
+
+export const meta: MetaFunction = () => {
+  return [
+    { charset: "utf-8", },
+    { title: "Auto Render System", },
+    { viewport: "width=device-width,initial-scale=1" },
+  ];
+};
 
 type LoaderData = {
   isLoggedIn:boolean;
@@ -47,8 +55,6 @@ export default function App() {
   return (
     <html lang="en">
       <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
       </head>

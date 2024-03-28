@@ -1,5 +1,11 @@
 import { useLocation } from "@remix-run/react";
-import RenderStepArrow from "./RenderStepArrow";
+import renderStepArrow from "./renderStepArrow";
+import { LinksFunction } from "@remix-run/node";
+import styles from './renderSteps.css'
+
+export const links: LinksFunction = () => [
+    { rel: "stylesheet", href: styles }
+  ];
 
 type RenderStepsData = {
     titles? :string[]
@@ -24,7 +30,7 @@ export default function RenderSteps(data:RenderStepsData)
         }
     }
 
-    const arrows = data.titles?.map((title, index) => RenderStepArrow(index, index == currentIndex, title))
+    const arrows = data.titles?.map((title, index) => renderStepArrow(index, index == currentIndex, title))
 
     return(
         <div className="wrap">

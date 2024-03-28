@@ -1,11 +1,13 @@
-import { ActionFunction, ActionFunctionArgs, LoaderFunctionArgs, json, redirect } from "@remix-run/node";
+import { LoaderFunctionArgs, json } from "@remix-run/node";
 import { Outlet, useLoaderData } from "@remix-run/react";
 import { RedirectToLoginIfUserInvalid } from "~/utils/userUtils";
 
 import styles from '~/styles/userDashboard.css';
 
 export function links() {
-    return [{ rel: 'stylesheet', href: styles }];
+    return [
+        { rel: 'stylesheet', href: styles }
+    ];
 }
 
 type LoaderData = {

@@ -1,11 +1,7 @@
 import { ActionFunction, ActionFunctionArgs, LoaderFunctionArgs, redirect } from '@remix-run/node';
-import styles from '~/styles/userDashboard.css';
 import { commitSession, getSession } from '~/utils/session';
 import { RedirectToLoginIfUserInvalid } from '~/utils/userUtils';
 
-export function links() {
-    return [{ rel: 'stylesheet', href: styles }];
-}
 
 export async function loader({request}: LoaderFunctionArgs) {
 
@@ -27,10 +23,3 @@ export const action: ActionFunction = async ({ request }: ActionFunctionArgs) =>
         }
     });
 };
-
-export default function Logout()
-{
-    return (<>
-        <h3>Logging out..</h3>
-    </>);
-}
